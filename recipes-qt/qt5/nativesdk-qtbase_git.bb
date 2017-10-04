@@ -40,6 +40,7 @@ SRC_URI += "\
     file://0010-linux-clang-Invert-conditional-for-defining-QT_SOCKL.patch \
     file://0011-tst_qlocale-Enable-QT_USE_FENV-only-on-glibc.patch \
     file://0012-mkspecs-common-gcc-base.conf-Use-I-instead-of-isyste.patch \
+    file://0013-Add-objcopy-to-linux-oe-gplatform.patch \
 "
 
 # common for qtbase-native and nativesdk-qtbase
@@ -192,6 +193,7 @@ fakeroot do_generate_qt_environment_file() {
     echo 'export OE_QMAKE_CXX=$CXX' >> $script
     echo 'export OE_QMAKE_LINK=$CXX' >> $script
     echo 'export OE_QMAKE_AR=$AR' >> $script
+    echo 'export OE_QMAKE_OBJCOPY=$OBJCOPY' >> $script
     echo 'export OE_QMAKE_STRIP=$STRIP' >> $script
     echo 'export QT_CONF_PATH=${OE_QMAKE_PATH_HOST_BINS}/qt.conf' >> $script
     echo 'export OE_QMAKE_LIBDIR_QT=`qmake -query QT_INSTALL_LIBS`' >> $script
